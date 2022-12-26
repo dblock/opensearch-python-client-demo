@@ -16,7 +16,7 @@ from opensearchpy import AWSV4SignerAuth, OpenSearch, RequestsHttpConnection
 
 # cluster endpoint, for example: my-test-domain.us-east-1.es.amazonaws.com
 url = urlparse(environ['OPENSEARCH_ENDPOINT'])
-region = environ.get('OPENSEARCH_REGION', 'us-west-2')
+region = environ.get('AWS_REGION', 'us-east-1')
 
 credentials = Session().get_credentials()
 
@@ -37,21 +37,21 @@ info = client.info()
 print(f"{info['version']['distribution']}: {info['version']['number']}")
 
 # create an index
-index = 'sample-index'
+index = 'movies'
 client.indices.create(index=index)
 
 try:
   # index data
-  document = {'first_name': 'Bruce'}
+  document = {'director': 'Bennett Miller', 'title': 'Moneyball', 'year': 2011}
   client.index(index=index, body=document, id='1', refresh=True)
 
   # wait for the document to index
-  sleep(3)
+  sleep(1)
 
   # search for the document
-  results = client.search(body={'query': {'match': {'first_name': 'bruce'}}})
+  results = client.search(body={'query': {'match': {'director': 'miller'}}})
   for hit in results['hits']['hits']:
-    print(hit)
+    print(hit['_source'])
 
   # delete the document
   client.delete(index=index, id='1')
