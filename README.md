@@ -61,7 +61,7 @@ export AWS_SECRET_ACCESS_KEY=
 export AWS_SESSION_TOKEN=
 export AWS_REGION=us-west-2
 
-export OPENSEARCH_ENDPOINT=https://....us-west-2.es.amazonaws.com
+export ENDPOINT=https://....us-west-2.es.amazonaws.com
 
 pipenv run python example.py 
 ```

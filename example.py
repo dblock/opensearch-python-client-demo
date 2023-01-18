@@ -15,7 +15,7 @@ from boto3 import Session
 from opensearchpy import AWSV4SignerAuth, OpenSearch, RequestsHttpConnection
 
 # cluster endpoint, for example: my-test-domain.us-east-1.es.amazonaws.com
-url = urlparse(environ['OPENSEARCH_ENDPOINT'])
+url = urlparse(environ['ENDPOINT'])
 region = environ.get('AWS_REGION', 'us-east-1')
 
 credentials = Session().get_credentials()
