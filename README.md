@@ -74,7 +74,7 @@ opensearch: 2.3.0
 {'director': 'Bennett Miller', 'title': 'Moneyball', 'year': 2011}
 ```
 
-The [code](example.py) will create an index, add a document, search for it, then cleanup.
+The [code](sync/example.py) will create an index, add a document, search for it, then cleanup. And for async client, the following [code](async/example.py) can be used.
 
 ## License 
 
