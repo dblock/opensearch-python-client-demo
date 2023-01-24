@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "4479280e67a627d27569cdfcf611c4ce65273f10ff3790672a2a2b68396562f1"
+            "sha256": "b36a1f1508297292b594869b3026c3295e16ad66f5123f21f266c179e14344e0"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -145,19 +145,19 @@
         },
         "boto3": {
             "hashes": [
-                "sha256:0b1f82d4565ed875c7975ac0be5665e8d948613c01bcb0e49df6d4f5af670cc8",
-                "sha256:319ddb274f8f83b035b88a3b127c465bf6fe3e3fc2d668869b489e992c47ca77"
+                "sha256:d68576dcb1c520474eafb64b996661068a369f40bbd104ccb9502cad71849e57",
+                "sha256:e8ae1567b0a21d410f9c8a16a17a8028445a52061482272b4a516f5de5abbd92"
             ],
             "index": "pypi",
-            "version": "==1.26.52"
+            "version": "==1.26.55"
         },
         "botocore": {
             "hashes": [
-                "sha256:a0b89a33305cfa6251c6e1142deb7567e216e37e25363159f45fb81dc5b474e5",
-                "sha256:de55b6333fb13c66da9055972d7e4efff5dcc5a087478a2b70e99d888b29a24c"
+                "sha256:5fe6b8809292bb178a9378fea4f96bc969003d1048cf6de8ad3c5a73690fefa9",
+                "sha256:dd8a0868b287015bed086c97b866f9bb8ca57737d15972d3ac773559f4088db8"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==1.29.52"
+            "version": "==1.29.55"
         },
         "certifi": {
             "hashes": [
@@ -355,12 +355,12 @@
             "extras": [
                 "async"
             ],
-            "git": "https://github.com/opensearch-project/opensearch-py",
             "hashes": [
-                "sha256:884be795af6a1d31e63cf45fceb51334108e4c74eac73a5df18ce9851e9c9da4",
-                "sha256:daa5eb2279b89bf15d63312a922bd5ab7f266d3c2737e48dec6ff862d7b1838a"
+                "sha256:3e7085bf25487979581416f4ab195c2fe62e90f1f07f393091f8233cbea032eb",
+                "sha256:dd54a50c6771bc2582741bfdcf629b8d7eed409ae7fc2722249e53f9a10de0d8"
             ],
-            "ref": "c73e46381e86464d60a1ab69c346ce36612dd955"
+            "index": "pypi",
+            "version": "==2.1.1"
         },
         "python-dateutil": {
             "hashes": [

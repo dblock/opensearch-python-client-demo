@@ -48,6 +48,7 @@ On Windows, run `pyenv rehash` if `pipenv` cannot be found. This rehashes pyenv 
 Install dependencies.
 
 ```
+cd sync
 pipenv install
 ```
 
@@ -74,7 +75,7 @@ opensearch: 2.3.0
 {'director': 'Bennett Miller', 'title': 'Moneyball', 'year': 2011}
 ```
 
-The [code](sync/example.py) will create an index, add a document, search for it, then cleanup. And for async client, the following [code](async/example.py) can be used.
+The [sync](sync/example.py) and the [async](async/example.py) examples will create an index, add a document, search for it, then cleanup.
 
 ## License 
 

@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-opensearch-py = { extras=["async"], version="*", git="https://github.com/opensearch-project/opensearch-py" }
+opensearch-py = { extras=["async"], version="2.2.1" }
 boto3 = "*"
 asyncio = "*"
 

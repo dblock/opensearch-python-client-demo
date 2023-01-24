@@ -8,6 +8,8 @@
 # GitHub history for details.
 
 import asyncio
+import logging
+
 from os import environ
 from time import sleep
 from urllib.parse import urlparse
@@ -15,13 +17,17 @@ from urllib.parse import urlparse
 from boto3 import Session
 from opensearchpy import AWSV4SignerAsyncAuth, AsyncOpenSearch, AsyncHttpConnection
 
+# verbose logging
+logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.INFO)
+
 # cluster endpoint, for example: my-test-domain.us-east-1.es.amazonaws.com
 url = urlparse(environ['ENDPOINT'])
 region = environ.get('AWS_REGION', 'us-east-1')
+service = environ.get('SERVICE', 'es')
 
 credentials = Session().get_credentials()
 
-auth = AWSV4SignerAsyncAuth(credentials, region)
+auth = AWSV4SignerAsyncAuth(credentials, region, service)
 
 client = AsyncOpenSearch(
   hosts=[{
@@ -31,12 +37,15 @@ client = AsyncOpenSearch(
   http_auth=auth,
   use_ssl=True,
   verify_certs=True,
-  connection_class=AsyncHttpConnection
+  connection_class=AsyncHttpConnection,
+  timeout=30
 )
 
 async def main():
-  info = await client.info()
-  print(f"{info['version']['distribution']}: {info['version']['number']}")
+  # TODO: remove when OpenSearch Serverless adds support for /
+  if service == 'es':
+    info = await client.info()
+    print(f"{info['version']['distribution']}: {info['version']['number']}")
 
   # create an index
   index = 'movies3'
@@ -63,7 +72,8 @@ async def main():
     await client.close()
 
 
-if __name__ == "__main__":   
-  loop = asyncio.get_event_loop()
+if __name__ == "__main__":
+  loop = asyncio.new_event_loop()
+  asyncio.set_event_loop(loop)
   loop.run_until_complete(main())
   loop.close()
