@@ -1,6 +1,6 @@
 # OpenSearch Python Client Demo
 
-Makes requests to Amazon OpenSearch using the [OpenSearch Python Client](https://github.com/opensearch-project/opensearch-py).
+Makes requests to Amazon OpenSearch using the [OpenSearch Python Client](https://github.com/opensearch-project/opensearch-py). Supports OpenSearch Serverless since opensearch-py 2.2.1.
 
 ### Install Prerequisites
 
@@ -61,9 +61,10 @@ export AWS_SECRET_ACCESS_KEY=
 export AWS_SESSION_TOKEN=
 export AWS_REGION=us-west-2
 
+export SERVICE=es # use "aoss" for OpenSearch Serverless.
 export ENDPOINT=https://....us-west-2.es.amazonaws.com
 
-pipenv run python example.py 
+pipenv run python example.py
 ```
 
 This will output the version of OpenSearch and a search result.
