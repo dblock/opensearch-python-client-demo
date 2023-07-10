@@ -75,7 +75,7 @@ opensearch: 2.3.0
 {'director': 'Bennett Miller', 'title': 'Moneyball', 'year': 2011}
 ```
 
-The [sync](sync/example.py) and the [async](async/example.py) examples will create an index, add a document, search for it, then cleanup.
+The [sync](sync/example.py) and the [async](async/example.py) examples will create an index, add a document, search for it, then cleanup. There's also an example of inserting and searching for vectors in [k-nn.py](sync/k-nn.py).
 
 ## License 
 
