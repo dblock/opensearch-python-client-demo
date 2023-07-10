@@ -16,6 +16,8 @@ from urllib.parse import urlparse
 from boto3 import Session
 from opensearchpy import AWSV4SignerAuth, OpenSearch, RequestsHttpConnection
 
+import json
+
 # verbose logging
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.INFO)
 
@@ -66,10 +68,12 @@ client.indices.create(
 
 vectors = [
     {
+        "id": "vec1",
         "values": [0.1, 0.2, 0.3],
         "metadata": {"genre": "drama"},
     },
     {
+        "id": "vec2",
         "values": [0.2, 0.3, 0.4],
         "metadata": {"genre": "action"},
     },
@@ -78,7 +82,15 @@ vectors = [
 try:
   # index data
   for vector in vectors:
-    client.index(index=index, body=vector)
+    vector_data = {i: vector[i] for i in vector if i != "id"}
+    client.index(index=index, body=vector_data, id=vector['id'])
+
+  # bulk insert
+  # data = ""
+  # for vector in vectors:
+  #     data += json.dumps({ "index": {"_index": index, "_id": vector["id"]} }) + "\n"
+  #     data += json.dumps({i: vector[i] for i in vector if i != "id"}) + "\n"
+  # client.bulk(data)
 
   # wait for the document to index
   sleep(10)
@@ -91,4 +103,3 @@ try:
 finally:
   # delete the index
   client.indices.delete(index=index)
-  pass
