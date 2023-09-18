@@ -75,7 +75,7 @@ opensearch: 2.3.0
 {'director': 'Bennett Miller', 'title': 'Moneyball', 'year': 2011}
 ```
 
-The [sync](sync/example.py) and the [async](async/example.py) examples will create an index, add a document, search for it, then cleanup. There's also an example of inserting and searching for vectors in [k-nn.py](sync/k-nn.py).
+The [sync](sync/example.py) and the [async](async/example.py) examples will create an index, add a document, search for it, then cleanup. There's also an example of inserting and searching for vectors in [k-nn.py](sync/k-nn.py) and another example making direct `transport` calls instead of a higher level DSL in [transport.py](sync/transport.py).
 
 ## License 
 
