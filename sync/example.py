@@ -36,7 +36,6 @@ client = OpenSearch(
   http_auth=auth,
   use_ssl=True,
   verify_certs=True,
-  connection_class=RequestsHttpConnection,
   timeout=30
 )
 
