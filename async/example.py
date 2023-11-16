@@ -15,7 +15,7 @@ from time import sleep
 from urllib.parse import urlparse
 
 from boto3 import Session
-from opensearchpy import AWSV4SignerAsyncAuth, AsyncOpenSearch, AsyncHttpConnection
+from opensearchpy import AWSV4SignerAsyncAuth, AsyncOpenSearch, AsyncHttpConnection, __versionstr__
 
 # verbose logging
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.INFO)
@@ -28,6 +28,8 @@ service = environ.get('SERVICE', 'es')
 credentials = Session().get_credentials()
 
 auth = AWSV4SignerAsyncAuth(credentials, region, service)
+
+print(f"Using opensearch-py {__versionstr__}")
 
 client = AsyncOpenSearch(
   hosts=[{

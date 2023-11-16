@@ -4,9 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-opensearch-py = { extras=["async"], version="2.2.1" }
+opensearch-py = "2.4.1"
 boto3 = "*"
-asyncio = "*"
 
 [dev-packages]
 

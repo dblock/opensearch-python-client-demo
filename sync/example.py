@@ -14,10 +14,12 @@ from time import sleep
 from urllib.parse import urlparse
 
 from boto3 import Session
-from opensearchpy import AWSV4SignerAuth, OpenSearch, RequestsHttpConnection
+from opensearchpy import Urllib3AWSV4SignerAuth, OpenSearch, __versionstr__
 
 # verbose logging
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.INFO)
+
+print(f"Using opensearch-py {__versionstr__}")
 
 # cluster endpoint, for example: my-test-domain.us-east-1.es.amazonaws.com
 url = urlparse(environ['ENDPOINT'])
@@ -26,7 +28,7 @@ service = environ.get('SERVICE', 'es')
 
 credentials = Session().get_credentials()
 
-auth = AWSV4SignerAuth(credentials, region, service)
+auth = Urllib3AWSV4SignerAuth(credentials, region, service)
 
 client = OpenSearch(
   hosts=[{

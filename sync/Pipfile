@@ -4,8 +4,8 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-opensearch-py = "2.2.1"
 boto3 = "*"
+opensearch-py = "2.4.1"
 
 [dev-packages]
 
